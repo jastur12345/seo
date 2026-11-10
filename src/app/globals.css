@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/*
+  Brand tokens, taken from jasonturtoga.com (Elementor globals + page CSS):
+  brand       #75bc1c  bright green: accents, icons, large display only (too light for small text)
+  brand-dark  #4f8212  buttons, bands, green text (4.6:1 on white)
+  brand-deep  #3d6a0c  button hover
+  brand-tint  #cff2b8  soft green fills
+  brand-wash  #f3faec  section backgrounds
+  ink         #222222  headings + body
+  muted       #54595f  secondary text
+  off         #f7f7f7  off-white sections
+*/
+@theme {
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #75bc1c;
+  --color-brand-dark: #4f8212;
+  --color-brand-deep: #3d6a0c;
+  --color-brand-tint: #cff2b8;
+  --color-brand-wash: #f3faec;
+  --color-ink: #222222;
+  --color-muted: #54595f;
+  --color-off: #f7f7f7;
+}
+
+/* One fixed light palette so every visitor (and Google's ad reviewers) sees the
+   same page as the main site. */
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
