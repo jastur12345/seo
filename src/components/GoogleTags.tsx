@@ -1,9 +1,9 @@
 import Script from "next/script";
+import { GTAG_ID } from "@/lib/tags";
 
-// Loads gtag.js for the Google Ads tag. Renders nothing until NEXT_PUBLIC_GTAG_ID is set
-// (written by the conversion-tracking SOP into .env.local).
+// Loads gtag.js for the Google Ads tag (ID from src/lib/tags.ts, overridable via NEXT_PUBLIC_GTAG_ID).
 export default function GoogleTags() {
-  const id = process.env.NEXT_PUBLIC_GTAG_ID;
+  const id = GTAG_ID;
   if (!id || !/^(AW|G|GT)-[A-Z0-9]+$/.test(id)) return null; // also keeps the inline script safe
   return (
     <>
