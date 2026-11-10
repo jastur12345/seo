@@ -1,5 +1,6 @@
 // Thin wrappers around gtag. Every function is a safe no-op when the tag isn't
-// configured (NEXT_PUBLIC_GTAG_ID unset) or is blocked by an ad blocker.
+// loaded (e.g. blocked by an ad blocker).
+import { CONVERSION_LABEL } from "@/lib/tags";
 
 declare global {
   interface Window {
@@ -10,7 +11,7 @@ declare global {
 
 /** Fires the Google Ads lead conversion. transactionId dedupes refreshes of /thank-you. */
 export function trackConversion(transactionId?: string): boolean {
-  const sendTo = process.env.NEXT_PUBLIC_GADS_CONVERSION_LABEL;
+  const sendTo = CONVERSION_LABEL;
   if (!sendTo || typeof window === "undefined" || !window.gtag) return false;
   window.gtag("event", "conversion", {
     send_to: sendTo,
